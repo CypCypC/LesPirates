@@ -2,11 +2,15 @@ package jeu;
 import java.security.SecureRandom;
 import java.util.Random;
 
-public class De {
-	private int nbFace = 6;
+public class De{
+	private int nbFace = 12;
 	private int valeur;
 	
-	public int lancerDes() {
+	public De (int nbFace) {
+		this.nbFace = nbFace;
+	}
+	
+	public int lancerDe() {
 		  Random random;
 			try {
 				random = SecureRandom.getInstanceStrong();
