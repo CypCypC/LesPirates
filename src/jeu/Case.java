@@ -1,8 +1,8 @@
 package jeu;
 
 public abstract class Case{
-	private int specialite;
 	protected Jeu jeu;
+	private int specialite;
 
 	protected Case(int specialite, Jeu jeu) {
 		this.specialite = specialite;
@@ -10,29 +10,22 @@ public abstract class Case{
 		
 	}
 	
-
-
-
-	public int getSpecialite() {
-		return specialite;
-	}
-	
-
 	public void effetCase() {
 		int val = this.getSpecialite();
 		switch(val) {
 		case 1:
-			jeu.getLog().afficherPiege(jeu.getJA().getNom(), "Tempête");
-			jeu.getJA().setPosition(jeu.getDe30face().lancerDe());
+			jeu.getLog().afficherPiege(jeu.getJA().getNom(), "Tempête : le joueur atterit quelque part");
+			jeu.getJA().setResDe(jeu.chiffreRandom(30));
+			jeu.getJA().setPosition(jeu.getJA().getResDe());
 			break;
 		case 2:
-			jeu.getLog().afficherPiege(jeu.getJA().getNom(), "Jour de chance");
+			jeu.getLog().afficherPiege(jeu.getJA().getNom(), "Jour de chance. il relance le dé");
 			jeu.getJA().setResDe(jeu.getDe().lancerDe());
 			jeu.getJA().avancerPirate(jeu.getJA().getResDe());
 			jeu.getLog().affichageResultat(jeu.getJA().getNom(), jeu.getJA().getResDe());
 			break;
 		case 3:
-			jeu.getLog().afficherPiege(jeu.getJA().getNom(), "Manque de bol");
+			jeu.getLog().afficherPiege(jeu.getJA().getNom(), "Manque de bol, il relance le dé et recule");
 			jeu.getJA().setResDe(jeu.getDe().lancerDe());
 			jeu.getJA().reculerPirate(jeu.getJA().getResDe());
 			jeu.getLog().affichageResultat(jeu.getJA().getNom(), jeu.getJA().getResDe());
@@ -67,5 +60,10 @@ public abstract class Case{
 			jeu.getLog().afficher("Case normale.\n");
 			break;
 		}
+	}
+	
+
+	public int getSpecialite() {
+		return specialite;
 	}
 }

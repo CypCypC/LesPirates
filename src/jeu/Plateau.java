@@ -5,25 +5,12 @@ import java.util.Random;
 
 public class Plateau {
 	private Case[] cases;
-	private int nbCase = 30;
-	private int valeur;
 	private int cptCaseChangerPos;
 	private int cptCaseChangerVie;
 	private int cptCaseModifDe;
 	private Jeu jeu;
-
-	public int chiffreRandom(int max) {
-		// utile pour générer un chiffre aléatoire pour le reste du programme
-		Random random;
-		try {
-			random = SecureRandom.getInstanceStrong();
-			valeur = random.nextInt(max) + 1;
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return valeur;
-	}
+	private int nbCase = 30;
+	private int valeur;
 
 	public Plateau(Jeu jeu) {
 		this.jeu = jeu;
@@ -46,6 +33,19 @@ public class Plateau {
 			}
 		}
 
+	}
+
+	public int chiffreRandom(int max) {
+		// utile pour générer un chiffre aléatoire pour le reste du programme
+		Random random;
+		try {
+			random = SecureRandom.getInstanceStrong();
+			valeur = random.nextInt(max) + 1;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return valeur;
 	}
 
 	public Case getCase(int indice) {

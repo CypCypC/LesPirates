@@ -1,28 +1,28 @@
 package jeu;
 
 public interface Affichage {
-	public void afficher(String truc);
+	public void affichageGagnant(String nom);
+	
+	public void affichageJoueurActif(String nom, int position, int vie);
 	
 	public void affichageLancerDe(String nom);
 	
-	public void affichageResultat(String nom, int resultat);
+	public void affichagePosition(String nom, int position);
 	
 	public void affichagePremierJoueur(String nom );
 	
-	void affichageJoueurActif(String nom, int position, int vie);
+	public void affichageResultat(String nom, int resultat);
 	
-	public void affichageGagnant(String nom);
+	public void afficher(String truc);
 	
-	public void affichagePosition(String nom, int position);
-	
-	public void affichageVieJoueur(String nom, int vie);
-	
-	public void afficherPiege(String nom, String piege);
-	
-	public void afficherFinDeTour(String nom, int position, int vie);
+	public void afficherAvancer(String nom, int distance);
 	
 	public void afficherDuel();
 	
-	public void afficherMultiplicateur(String nom, int multiplicateur);
+	public void afficherFinDeTour(String nom, int position, int vie);
+	
+	public void afficherMultiplicateur(String nom, double d);
+
+	public void afficherPiege(String nom, String piege);
 
 }

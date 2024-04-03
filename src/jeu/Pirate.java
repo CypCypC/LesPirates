@@ -5,16 +5,14 @@ public class Pirate {
 	private int position;
 	private int vie = 5;
 	private int numID;
-	private int caseSpecial = 0;
-	private int multiplicateurDe = 1;
+	private double multiplicateurDe = 1;
 	private int resDe = 0;
 
-	public Pirate(String nom, int position, int vie, int numID, int caseSpecial, int multiplicateurDe) {
+	public Pirate(String nom, int position, int vie, int numID, int multiplicateurDe) {
 		this.nom = nom;
 		this.position = position;
 		this.vie = vie;
 		this.numID = numID;
-		this.caseSpecial = caseSpecial;
 		this.multiplicateurDe = multiplicateurDe;
 	}
 
@@ -34,15 +32,25 @@ public class Pirate {
 		return vie;
 	}
 
+	public int changerVie(int pv) {
+		this.vie = pv;
+		return vie;
+	}
+
+	public int changerVieDuel() {
+		this.vie = this.vie - 3;
+		return this.vie;
+	}
+	
 	public int getNumID() {
 		return numID;
 	}
 
-	public int getCaseSpecial() {
-		return caseSpecial;
+	public void setNumID(int ordre) {
+		this.numID = ordre;
 	}
-
-	public int getMultiplicateurDe() {
+	
+	public double getMultiplicateurDe() {
 		return multiplicateurDe;
 	}
 	
@@ -58,20 +66,6 @@ public class Pirate {
 	public int reculerPirate(int distance) {
 		position = position - distance;
 		return position;
-	}
-
-	public void setOrdre(int ordre) {
-		this.numID = ordre;
-	}
-
-	public int changerVie(int pv) {
-		this.vie = pv;
-		return vie;
-	}
-
-	public int changerVieDuel() {
-		this.vie = this.vie - 1;
-		return this.vie;
 	}
 	
 	public void setResDe(int res) {
