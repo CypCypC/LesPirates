@@ -44,7 +44,8 @@ public class Jeu {
 	}
 
 	public void attenteSuite() {
-		Scanner scanner = new Scanner(System.in); //besoin de laisser ouvert parce que si on met un scanner.close ça n'attend pas pour la suite
+		Scanner scanner = new Scanner(System.in); // besoin de laisser ouvert parce que si on met un scanner.close ça
+													// n'attend pas pour la suite
 		log.afficher("Appuyez sur la touche entrée pour continuer...\n");
 		while (true) {
 			if (scanner.hasNextLine()) {
@@ -82,17 +83,15 @@ public class Jeu {
 			// lancé du dé par le joueur actif
 			lancerDeJA();
 			// si jamais le joueur dépasse la ligne d'arrivée ou passe dans les négatifs
-			if (correctionCase() == 1) {
-				break;
-			} else {
+			if (correctionCase() != 1) {
 				log.affichagePosition(joueuractu.getNom(), joueuractu.getPosition());
 				applicationCase();
+				checkDuel();
+				log.afficherFinDeTour(joueuractu.getNom(), joueuractu.getPosition(), joueuractu.getVie());
+				attenteSuite();
+				// mise a jour des données du joueur actif et passage au joueur suivant
+				changerJoueur();
 			}
-			checkDuel();
-			log.afficherFinDeTour(joueuractu.getNom(), joueuractu.getPosition(), joueuractu.getVie());
-			attenteSuite();
-			// mise a jour des données du joueur actif et passage au joueur suivant
-			changerJoueur();
 		}
 		checkVictoire();
 
